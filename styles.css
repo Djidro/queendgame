@@ -6,11 +6,19 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    background-color: pink; /* Changed to pink */
+    background-image: url('images/background.jpg'); /* Path to your saved image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps background fixed during scroll */
+    color: #333;
 }
 
 .container {
     text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Optional: adds a translucent background for readability */
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .header {
