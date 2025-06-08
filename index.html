@@ -3,41 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>Simple POS System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="date"><strong style="color: black;">28 Dec 2017</strong></div>
-            <div class="score" id="scoreDisplay">
-                <span id="playerXScore"></span> | <span id="playerOScore"></span>
+            <h1>Simple POS System</h1>
+            <div class="employee-info">
+                <span id="current-employee">Cashier: Admin</span>
+                <button id="logout-btn">Logout</button>
             </div>
         </div>
-        <div id="nameInput" class="name-input">
-            <input type="text" id="playerX" placeholder="Enter name for Player X">
-            <input type="text" id="playerO" placeholder="Enter name for Player O">
-            <button id="startBtn">Start Game</button>
-        </div>
-        <div id="gameBoard" class="game-board" style="display: none;">
-            <div class="cell" data-index="0"></div>
-            <div class="cell" data-index="1"></div>
-            <div class="cell" data-index="2"></div>
-            <div class="cell" data-index="3"></div>
-            <div class="cell" data-index="4"></div>
-            <div class="cell" data-index="5"></div>
-            <div class="cell" data-index="6"></div>
-            <div class="cell" data-index="7"></div>
-            <div class="cell" data-index="8"></div>
-        </div>
-        <div class="buttons">
-            <button id="restartBtn">Restart</button>
+
+        <div class="main-content">
+            <div class="product-grid">
+                <div class="search-bar">
+                    <input type="text" id="product-search" placeholder="Search products...">
+                    <button id="barcode-scan">Scan Barcode</button>
+                </div>
+                <div class="products" id="product-list">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+
+            <div class="cart-section">
+                <div class="cart-header">
+                    <h2>Order Summary</h2>
+                    <button id="clear-cart">Clear</button>
+                </div>
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will appear here -->
+                </div>
+                <div class="cart-totals">
+                    <div class="subtotal">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="tax">
+                        <span>Tax (10%):</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button id="hold-order">Hold Order</button>
+                    <button id="pay-now">Pay Now</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div id="winnerPopup" class="popup">
-        <div class="popup-content">
-            <span id="winnerText"></span>
+    <!-- Payment Modal -->
+    <div class="modal" id="payment-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select Payment Method</h2>
+            <div class="payment-options">
+                <button class="payment-method" data-method="cash">Cash</button>
+                <button class="payment-method" data-method="momo">MoMo</button>
+                <button class="payment-method" data-method="card">Credit Card</button>
+            </div>
+            <div class="payment-details" id="cash-details">
+                <label for="amount-tendered">Amount Tendered:</label>
+                <input type="number" id="amount-tendered" step="0.01">
+                <p>Change: <span id="change-amount">$0.00</span></p>
+            </div>
+            <button id="complete-payment">Complete Payment</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <h2>Employee Login</h2>
+            <div class="login-form">
+                <input type="text" id="employee-id" placeholder="Employee ID">
+                <input type="password" id="employee-pin" placeholder="PIN">
+                <button id="login-btn">Login</button>
+            </div>
         </div>
     </div>
 
